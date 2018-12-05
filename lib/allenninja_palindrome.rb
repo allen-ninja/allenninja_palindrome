@@ -1,6 +1,7 @@
 require "allenninja_palindrome/version"
 
-class String
+
+module Palindrome
 
   # Returns true for a palindrome, false otherwise.
   def palindrome?
@@ -9,20 +10,30 @@ class String
 
   # Returns the letters in the String
   def letters
-    the_letters = []
-      for i in 0..self.length - 1 do
-        if self[i].match(/[a-zA-Z]/)
-          the_letters << self[i]
-        end
-      end
-      the_letters.join
-    end
+    self.chars.select { |c| c.match(/[a-z]/i) }.join
+  end
 
   private
 
   # Returns content for palindrome testing.
   def processed_content
-    self.to_s.letters.downcase
+    self.scan(/[a-z]/i).join.downcase
+  end
+
+end
+
+
+class String
+  include Palindrome
+end
+
+class Integer
+  include Palindrome
+
+  private
+  
+  def processed_content
+    self.to_s
   end
 
 end

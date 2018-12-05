@@ -18,8 +18,8 @@ class AllenninjaPalindromeTest < Minitest::Test
       assert "A man, a plan, a canal-Panama!"
     end
 
-    def test_letters
-      assert_equal "AmanaplanacanalPanama", "A man, a plan, a canal-Panama!".letters
-    end
+    def test_palindrome_on_integers
+      assert 12321.palindrome?
+    end 
 
   end
