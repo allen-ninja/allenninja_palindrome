@@ -5,13 +5,12 @@ module AllenNinjaPalindrome
 
   # Returns true for a palindrome, false otherwise.
   def palindrome?
+    if processed_content.empty?
+      false
+    else
     processed_content == processed_content.reverse
+    end 
   end
-
-  # Returns the letters in the String
-  #def letters
-  #  self.chars.select { |c| c.match(/[a-z0-9]/i) }.join
-  #end
 
   private
 
